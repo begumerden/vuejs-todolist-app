@@ -1,4 +1,4 @@
-# vuejs-todo-app
+# vuejs-todo-list-app
 
 > Vue.js Simple TodoList App
 
