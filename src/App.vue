@@ -1,11 +1,14 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img class="ui small centered image" src="./assets/logo.png">
+    <h1 class="ui dividing centered header">Simple Todo List App</h1>
+
     <!--To render the component, we invoke it like an HTML element and passing data to component-->
-    <div class='ui three column centered grid'>
+    <div class="container">
+      <new-todo v-on:add-item="addItem"/>
       <todo-list v-bind:todoList="todoList"/>
-      <new-todo v-on:add-todo-item="addTodoItem"/>
     </div>
+
   </div>
 </template>
 
@@ -39,7 +42,7 @@
       };
     },
     methods: {
-      addTodoItem(newItem) {
+      addItem(newItem) {
         this.todoList.push(newItem);
       }
     }
@@ -54,5 +57,9 @@
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+  }
+  .ui.container {
+    overflow: auto;
+    white-space: nowrap;
   }
 </style>

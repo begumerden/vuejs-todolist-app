@@ -1,7 +1,7 @@
 <template>
   <div class='ui basic content center aligned segment'>
 
-    <button class='ui basic button icon' v-on:click="openForm" v-show="!isCreating">
+    <button class='ui basic button icon' v-on:click="openForm()" v-show="!isCreating" data-tooltip="Add Task">
       <i class='plus icon'></i>
     </button>
 
@@ -10,17 +10,17 @@
         <div class='ui form'>
           <div class='field'>
             <label>Title</label>
-            <input v-model="titleText" type='text' ref='title' defaultValue="">
+            <input v-model="titleText" type='text' defaultValue="">
           </div>
           <div class='field'>
             <label>Project</label>
-            <input v-model="projectText" type='text' ref='project' defaultValue="">
+            <input v-model="projectText" type='text' defaultValue="">
           </div>
           <div class='ui two button attached buttons'>
             <button class='ui basic blue button' v-on:click="sendForm()">
               Create
             </button>
-            <button class='ui basic red button' v-on:click="closeForm">
+            <button class='ui basic red button' v-on:click="closeForm()">
               Cancel
             </button>
           </div>
@@ -52,7 +52,7 @@
         if (this.titleText.length > 0 && this.projectText.length > 0) {
           const title = this.titleText;
           const project = this.projectText;
-          this.$emit('add-todo-item', {
+          this.$emit('add-item', {
             title,
             project,
             done: false,
@@ -60,7 +60,7 @@
         }
         this.isCreating = false;
         this.projectText = '';
-        this.isCreating = false;
+        this.titleText = '';
       }
     },
   }
