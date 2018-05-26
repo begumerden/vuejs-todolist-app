@@ -1,6 +1,8 @@
-# vuejs-todo-list-app
+# Vue.js Simple TodoList App
+https://begumerden.github.io/vuejs-todolist-app/
 
 > Vue.js Simple TodoList App
+>> Vue JS & Semantic UI
 
 ## Build Setup
 

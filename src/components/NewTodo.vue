@@ -14,7 +14,7 @@
           </div>
           <div class='field'>
             <label>Description</label>
-            <input v-model="projectText" type='text' defaultValue="">
+            <input v-model="description" type='text' defaultValue="">
           </div>
           <div class='ui two button attached buttons'>
             <button class='ui basic blue button' v-on:click="sendForm()">
@@ -37,7 +37,7 @@
     data() {
       return {
         titleText: '',
-        projectText: '',
+        description: '',
         isCreating: false,
       };
     },
@@ -49,9 +49,9 @@
         this.isCreating = false;
       },
       sendForm() {
-        if (this.titleText.length > 0 && this.projectText.length > 0) {
+        if (this.titleText.length > 0 && this.description.length > 0) {
           const title = this.titleText;
-          const project = this.projectText;
+          const project = this.description;
           this.$emit('add-item', {
             title,
             project,
@@ -59,7 +59,7 @@
           });
         }
         this.isCreating = false;
-        this.projectText = '';
+        this.description = '';
         this.titleText = '';
       }
     },

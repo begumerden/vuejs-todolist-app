@@ -27,8 +27,8 @@
           <input type='text' v-model="todo.title">
         </div>
         <div class='field'>
-          <label>Project</label>
-          <input type='text' v-model="todo.project">
+          <label>Description</label>
+          <input type='text' v-model="todo.description">
         </div>
         <div class='ui two button attached buttons'>
           <button class='ui basic blue button' v-on:click="hideForm">
