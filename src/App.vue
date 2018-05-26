@@ -17,6 +17,7 @@
   import TodoList from './components/TodoList'
   import NewTodo from './components/NewTodo'
 
+  var LOCAL_STORAGE_KEY = 'vueTodoList';
   export default {
     name: 'App',
     components: {
@@ -24,21 +25,21 @@
       TodoList,
       NewTodo
     },
+    watch: {
+      todoList: {
+        handler() {
+          debugger;
+          this.todoList.forEach(function (todo, index) {
+            todo.id = index + 1
+          });
+          localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.todoList));
+        },
+        deep: true,
+      },
+    },
     data() {
       return {
-        todoList: [{
-          title: 'Todo 1',
-          project: 'Project 1',
-          done: false,
-        }, {
-          title: 'Todo 2',
-          project: 'Project 2',
-          done: true,
-        }, {
-          title: 'Todo 3',
-          project: 'Project 3',
-          done: false,
-        }]
+        todoList: JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]')
       };
     },
     methods: {
@@ -58,6 +59,7 @@
     color: #2c3e50;
     margin-top: 60px;
   }
+
   .ui.container {
     overflow: auto;
     white-space: nowrap;
