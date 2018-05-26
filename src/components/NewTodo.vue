@@ -13,7 +13,7 @@
             <input v-model="titleText" type='text' defaultValue="">
           </div>
           <div class='field'>
-            <label>Project</label>
+            <label>Description</label>
             <input v-model="projectText" type='text' defaultValue="">
           </div>
           <div class='ui two button attached buttons'>
